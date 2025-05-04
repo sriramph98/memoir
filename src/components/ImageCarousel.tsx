@@ -1,21 +1,19 @@
 'use client';
 
-import { JournalEntry } from '@/lib/airtable';
+import { JournalEntryWithImage } from '@/lib/airtable';
 import useEmblaCarousel from 'embla-carousel-react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
 import { useCallback, useEffect, useState } from 'react';
 
 interface ImageCarouselProps {
-  entries: JournalEntry[];
-  onEntrySelected: (entry: JournalEntry) => void;
+  entries: JournalEntryWithImage[];
+  onEntrySelected: (entry: JournalEntryWithImage) => void;
 }
 
 export default function ImageCarousel({ entries, onEntrySelected }: ImageCarouselProps) {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [canScrollPrev, setCanScrollPrev] = useState(false);
-  const [canScrollNext, setCanScrollNext] = useState(false);
 
   const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
   const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
@@ -26,8 +24,6 @@ export default function ImageCarousel({ entries, onEntrySelected }: ImageCarouse
     const index = emblaApi.selectedScrollSnap();
     setSelectedIndex(index);
     onEntrySelected(entries[index]);
-    setCanScrollPrev(emblaApi.canScrollPrev());
-    setCanScrollNext(emblaApi.canScrollNext());
   }, [emblaApi, entries, onEntrySelected]);
 
   useEffect(() => {
@@ -47,7 +43,7 @@ export default function ImageCarousel({ entries, onEntrySelected }: ImageCarouse
   if (entries.length === 0) {
     return (
       <div className="w-full h-full flex items-center justify-center bg-gray-100">
-        <p className="text-gray-500">No journal entries yet</p>
+        <p className="text-gray-500 tracking-wide">No journal entries yet</p>
       </div>
     );
   }

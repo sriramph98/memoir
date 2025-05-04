@@ -3,12 +3,14 @@
 :root {
   --background: #000000;
   --foreground: #ffffff;
+  --font-futura: "Futura", "Futura PT", "Avenir Next", "Century Gothic",
+    sans-serif;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-futura);
   --font-mono: var(--font-geist-mono);
 }
 
@@ -22,7 +24,7 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans);
+  font-family: var(--font-futura);
 }
 
 /* Add subtle animations */
@@ -48,6 +50,7 @@ h5,
 h6 {
   font-weight: 500;
   letter-spacing: -0.02em;
+  font-family: var(--font-futura);
 }
 
 /* Custom scrollbar */

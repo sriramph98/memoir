@@ -1,0 +1,62 @@
+/* Font face definitions for Futura */
+@font-face {
+  font-family: "Futura";
+  src: local("Futura"), local("Futura-Medium"),
+    url("https://fonts.cdnfonts.com/s/12669/futura%20medium%20bt.woff")
+      format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Futura";
+  src: local("Futura-Bold"), local("Futura Bold"),
+    url("https://fonts.cdnfonts.com/s/12669/Futura%20Bold%20font.woff")
+      format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Futura";
+  src: local("Futura-Light"), local("Futura Light"),
+    url("https://fonts.cdnfonts.com/s/12669/futura%20light%20bt.woff")
+      format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* Utility classes for Futura */
+.font-futura {
+  font-family: "Futura", "Futura PT", "Avenir Next", "Century Gothic",
+    sans-serif !important;
+  letter-spacing: 0.02em;
+}
+
+.font-futura-uppercase {
+  font-family: "Futura", "Futura PT", "Avenir Next", "Century Gothic",
+    sans-serif !important;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.font-futura-light {
+  font-family: "Futura", "Futura PT", "Avenir Next", "Century Gothic",
+    sans-serif !important;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+}
+
+.font-futura-medium {
+  font-family: "Futura", "Futura PT", "Avenir Next", "Century Gothic",
+    sans-serif !important;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+.font-futura-bold {
+  font-family: "Futura", "Futura PT", "Avenir Next", "Century Gothic",
+    sans-serif !important;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
