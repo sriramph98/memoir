@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MEMOIR
+
+A personal journal with a swipeable image carousel for displaying memories. This application displays journal entries with images in a minimalist black design, closely resembling the provided screenshot.
+
+## Features
+
+- Swipeable image carousel in the center of the page
+- Journal entry display with title, date, and content
+- Dark mode design with clean typography
+- Airtable integration for storing journal entries and images
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js (v18 or higher recommended)
+- An Airtable account with an API key
+
+### Installation
+
+1. Clone the repository:
+   ```
+   git clone <repository-url>
+   cd memoir
+   ```
+
+2. Install dependencies:
+   ```
+   npm install
+   ```
+
+3. Set up your Airtable:
+   - Create a base with a table named "Journal"
+   - Add columns: "title" (text), "date" (date), "content" (long text), "image" (URL)
+   - The base ID `appGxtVTCpnDl3gwv` is already configured in the code
+
+4. Create a `.env.local` file in the root directory with your Airtable API key:
+   ```
+   AIRTABLE_API_KEY=your_airtable_api_key_here
+   ```
+
+5. Run the development server:
+   ```
+   npm run dev
+   ```
+
+6. Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
+
+## Airtable Structure
+
+For this application to work correctly, your Airtable should have the following structure:
+
+- **Base ID**: appGxtVTCpnDl3gwv (or update it in `src/lib/airtable.ts`)
+- **Table name**: Journal
+- **Fields**:
+  - `title` (Single line text)
+  - `date` (Date)
+  - `content` (Long text)
+  - `image` (URL - link to the image)
+
+## Customize
+
+To customize the appearance:
+- Edit `src/app/globals.css` for site-wide styles
+- Update the components in `src/components/` for specific UI elements
+
+## Deployment
+
+This project can be deployed to Vercel or any other hosting service that supports Next.js applications.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Technology Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Next.js 15.3 (React 19)
+- Tailwind CSS
+- Airtable API
+- Embla Carousel for the swipeable image display
